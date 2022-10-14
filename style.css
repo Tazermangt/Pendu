@@ -1,0 +1,97 @@
+html{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+body{
+    display: grid;
+    width: 70%;
+    text-align: center;
+    background-color: lightgray;
+}
+
+
+button{
+    height: 60px;
+    width: 60px;
+    margin: 5px;
+
+    font-size: 20px;
+}
+img{
+    width: 350px;
+    height: 250px;
+}
+
+
+#guess{
+    height: 80px;
+}
+#retry{
+    height: 15%;
+    width: auto;
+}
+
+.correctLetter{
+    border-color: green;
+}
+.wrongLetter{
+    border-color: red;
+}
+
+/*
+    Associer les classes et IDs à la grid-area
+*/
+#pendu {grid-area: pendu;}
+#guess {grid-area: guess;}
+#input {grid-area: input;}
+#title {grid-area: title;}
+
+
+@media (orientation: landscape) {
+    body {
+        grid-template-columns: 2fr 2fr; /* Nombre et longueurs des colonnes */
+        grid-template-rows: 0.5fr 0.75fr 2fr; /* Nombre et longueurs des lignes */
+        grid-template-areas: /* Placement des divs dans le tableau */
+            "title title"
+            "pendu input"
+            "guess input";
+        grid-gap: 0.2rem;
+    }
+}
+
+@media (orientation: portrait) {
+    body {
+        grid-template-columns: 2fr; /* Nombre et longueurs des colonnes */
+        grid-template-rows: 0.25fr 0.20fr 0.4fr 2fr; /* Nombre et longueurs des lignes */
+        grid-template-areas: /* Placement des divs dans le tableau */
+            "title"
+            "guess"
+            "pendu"
+            "input";
+    }
+}
+
+@media  (max-width: 1010px), (max-height: 650px) {
+    body{
+        width: 100%;
+    }
+    button{
+        height: 40px;
+        width: 40px;
+        font-size: 15px;
+        margin: 2px;
+    }
+    img{
+        width: 200px;
+        height: 125px;
+    }
+    #pendu{
+        height: 100px;
+    }
+    #guess{
+        height: 80px;
+        font-size: 15px;
+    }
+}
